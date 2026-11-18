@@ -3,6 +3,7 @@ from typing import Iterator
 import pytest
 from playwright.sync_api import Page, BrowserContext, Browser, sync_playwright
 
+from web_practice.api.api_client import ApiClient
 from web_practice.pages.dashboard_page import DashboardPage
 
 
@@ -37,6 +38,11 @@ def page(context: BrowserContext) -> Iterator[Page]:
 @pytest.fixture
 def dashboard_page(page: Page) -> DashboardPage:
     return DashboardPage(page)
+
+
+@pytest.fixture
+def api_client() -> ApiClient:
+    return ApiClient()
 
 
 @pytest.fixture
